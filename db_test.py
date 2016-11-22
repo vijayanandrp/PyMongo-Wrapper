@@ -6,8 +6,7 @@ from db import MongoDB
 
 
 def random_data(max_len=3):
-	return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase + string.digits)
-			for _ in range(max_len))
+	return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(max_len))
 
 
 def get_dummy_data():
@@ -35,17 +34,6 @@ status(m0.get_current_status(), 'only database')
 m = MongoDB(database_name='try001')
 status(m.get_current_status(), 'only database - part 2')
 
-# req - create collection with validation
-m0.create_collection(collection_name='collection000')
-status(m0.get_current_status(), 'creating collection')
-# 2
-m = MongoDB(database_name='try002', collection_name='collection002')
-status(m.get_current_status(), 'creating collection - part 2')
-
-# req - insert a value
-# req - insert many
-# req - update
-
 # req - drop db by name
 mm = MongoDB(database_name='DELETE_ME')
 mm.create_collection(collection_name='Temporary')
@@ -57,11 +45,6 @@ print('DB names after dropping - ', mm.get_database_names())
 # req - trying to recreate DB with old details RAISE EXCEPTION
 # mm.insert(get_dummy_data())
 # print('DB names after dropping - ', mm.get_database_names())
-
-# req - drop collection by name
-# req - find/query
-# req - count
-# req - create index
 
 # req - get db names
 y = MongoDB()
@@ -89,3 +72,34 @@ status(y.get_collection_names(), 'get collection names')
 # req - get overall details
 y = MongoDB()
 status(y.get_overall_details(), msg='get overall details')
+
+
+# req - create collection with validation
+m0.create_collection(collection_name='collection000')
+status(m0.get_current_status(), 'creating collection')
+# 2
+m = MongoDB(database_name='try002', collection_name='collection002')
+status(m.get_current_status(), 'creating collection - part 2')
+# req - insert a value
+m.insert(get_dummy_data())
+status(m.insert(get_dummy_data()), msg=' Insert one')
+# req - insert many
+status(m.insert_many([get_dummy_data() for _ in range(10)]), msg=' Insert Many ')
+
+# req - find/query
+status(m.find_one({'author': 'sR4aSZ5q'}), msg=' find one')
+status(m.find(), msg=' find many')
+# req - count
+status(m.find(count=True), msg='count')
+print('Count again - ', m.count())
+# req - drop collection by name
+status(m.drop_collection(), msg='drop collection')
+# m.find()      # Raise Exception Error
+
+# req - update
+
+# req - insert/bulk write
+
+# req - create index
+
+# req - create indexs
