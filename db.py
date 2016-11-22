@@ -68,29 +68,39 @@ class MongoDB(object):
 		return self._connection.drop_database(str(database_name))
 
 	def drop_collection(self):
-		pass
+		self._collection.drop()
+		self._collection = None
 
 	def insert(self, post):
 		self.check_collection()
 		post_id = self._collection.insert_one(post).inserted_id
 		return post_id
-
-	def insert_many(self):
+	
+	def insert_many(self, posts):
 		self.check_collection()
-		pass
+		result = self._collection.insert_many(posts)
+		return result.inserted_ids
+	
+	def find_one(self, *args):
+		return self._collection.find_one(*args)
+	
+	def find(self, *args, count=False):
+		self.check_collection()
+		if not count:
+			return [post for post in self._collection.find(*args)]
+		return self._collection.find(*args).count()
+	
+	def count(self):
+		self.check_collection()
+		return self._collection.count()
 
 	def update(self):
 		self.check_collection()
 		pass
-
-	def find(self):
-		self.check_collection()
-		pass
-
-	def query(self):
-		self.check_collection()
-		pass
 	
 	def create_index(self):
+		pass
+	
+	def create_indexes(self):
 		pass
 
