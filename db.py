@@ -8,7 +8,8 @@ except ImportError:
 
 
 class MongoDB(object):
-	def __init__(self, host='localhost', port=27017, database_name=None, collection_name=None, drop_n_create=False):
+	def __init__(self, host='localhost', port=27017, database_name=None, 
+		     collection_name=None, drop_n_create=False):
 		try:
 			self._connection = MongoClient(host=host, port=port)
 		except Exception as error:
