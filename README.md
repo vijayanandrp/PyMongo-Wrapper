@@ -11,3 +11,5 @@ Done
 Explained the installation and programming in the following link.
 
 ### please visit - [Pymongo tutorial](https://informationcorners.com/pymongo-wrapper/)
+
+![alt text](https://i2.wp.com/informationcorners.com/wp-content/uploads/python-and-mongodb-1-728.jpg  "Pymongo Tutorial")
