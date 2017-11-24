@@ -1,13 +1,13 @@
-# PyMongo-Wrapper
-Just a simple wrapper class for Pymongo
+# PyMongo-Wrapper Library
+Just a simple wrapper class for Pymongo to consolidate the common usages.
 
-To be honest, this is not a complete wrapper. 
-Yet it covers some basics operations that we can perform.
-
-
-To be finished
---------------
-1. Indexes
+Done
+----------
+1. Insert
 2. Updation
-3. Deletion
- Has to be updated
+3. Deletion/remove
+4. Search/query/find
+
+Explained the installation and programming in the following link.
+
+### please visit - (https://informationcorners.com/pymongo-wrapper/)[https://informationcorners.com/pymongo-wrapper/]
