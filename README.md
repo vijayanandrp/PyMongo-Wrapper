@@ -10,4 +10,4 @@ Done
 
 Explained the installation and programming in the following link.
 
-### please visit - (https://informationcorners.com/pymongo-wrapper/)[https://informationcorners.com/pymongo-wrapper/]
+### please visit - [Pymongo tutorial](https://informationcorners.com/pymongo-wrapper/)
